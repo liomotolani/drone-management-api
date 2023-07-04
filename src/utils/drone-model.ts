@@ -1,0 +1,6 @@
+export enum Model {
+    LIGHTWEIGHT,
+    MIDDLEWEIGHT,
+    CRUISERWEIGHT,
+    HEAVYWEIGHT,
+}
