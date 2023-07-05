@@ -8,7 +8,10 @@ export class DroneDatabase {
 
 
     constructor() {
-        this.dronesDB = new Datastore({autoload: true});
+        this.dronesDB = new Datastore({
+            filename: './db/drones.db',
+            autoload: true
+        });
     }
 
     save(drone: Drone): Promise<Drone> {
