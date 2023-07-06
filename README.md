@@ -38,6 +38,22 @@ npm run start
 
 <br />
 
+## 🖨️ **USER API Endpoints**
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| POST | /api/v1/users/register | To register a user |
+| POST | /api/v1/users/login | To login a user |
+
+<br />
+
+
+## 🖨️ **DISPATCH API Endpoints**
+| POST | /api/v1/drones/register | To register a new drone |
+| PUT |/api/v1/drones/load?droneSerialNumber={serial number} | To load medication on a particular drone |
+| GET | /api/v1/drones/battery-level/:droneSerialNumber | To retrieve battery level of a drone |
+| GET | /api/v1/drones/medications/:droneSerialNumber | To retrieve details of all medications on a particular drone |
+| GET | /api/v1/drones/available | To retrieve details of all available drones for loading |
+
 
 ## 💻 **TECHNOLOGIES**
 
