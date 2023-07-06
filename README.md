@@ -1,6 +1,5 @@
 <div align='center'>
-    <h1><b>🎂 [Drone Management API] 🎂</b></h1>
-    <img src='' width='250' height='250' />
+    <h2><b>🎂 Drone Management API 🎂</b></h2>
     <p>Short description of the project.</p>
 
 </div>
