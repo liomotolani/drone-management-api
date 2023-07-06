@@ -3,10 +3,13 @@ import { Drone } from '../model/drone';
 import { User } from '../model/user';
 import { Audit } from '../model/audit';
 import { State } from '../utils/state';
+import { Medication } from '../model/medication';
 
 const usersDB = new Datastore({ filename: './db/users.db', autoload: true });
 const dronesDB = new Datastore({ filename: './db/drones.db', autoload: true });
 const auditsDB = new Datastore({ filename: './db/audits.db', autoload: true });
+const medicationDB = new Datastore({ filename: './db/medications.db', autoload: true });
+
 
 
 export const saveDrone = (drone: Drone): Promise<Drone>  =>{
@@ -113,6 +116,18 @@ export const saveAudit = (audit: Audit): Promise<Audit> => {
                 reject(err);
             } else {
                 resolve(aduitObj);
+            }
+        });
+    });
+}
+
+export const saveMedication = (medication: Medication): Promise<Medication> => {
+    return new Promise((resolve, reject) => {
+        medicationDB.insert(medication, (err, medicationObj) => {
+            if(err){
+                reject(err);
+            } else {
+                resolve(medicationObj);
             }
         });
     });

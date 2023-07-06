@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import { Drone } from '../model/drone';
 import { Medication } from '../model/medication';
-import { findDroneBySerialNumber, findIdleStateDrones, saveDrone, updateDrone } from '../service/database';
+import { findDroneBySerialNumber, findIdleStateDrones, saveDrone, saveMedication, updateDrone } from '../service/database';
 import { generateSerialNumber } from '../utils/generateNumbers';
 import { State } from '../utils/state';
 
@@ -67,6 +67,8 @@ export class DroneController {
                     drone.state = State.LOADING;
                 }
                 await updateDrone(drone);
+                medication['droneSerialNumber'] = drone.serialNumber;
+                await saveMedication(medication);
                 res.status(200).json({ message: 'Medication loaded successfully' , data: drone});
             }
         } catch (err) {

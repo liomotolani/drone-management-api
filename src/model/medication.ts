@@ -3,4 +3,5 @@ export interface Medication {
     weight: number;
     code: string;
     image?: string;
+    droneSerialNumber?: string
 }

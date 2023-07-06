@@ -1,11 +1,10 @@
-import { Model } from "../utils/drone-model";
 import { State } from "../utils/state";
 import { Medication } from "./medication";
 
 export interface Drone {
     _id?: string,
     serialNumber: string;
-    model: Model;
+    model: string;
     weightLimit: number;
     batteryCapacityLevel: number;
     state: State;

@@ -15,6 +15,7 @@
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.13",
     "@types/express-validator": "^3.0.0",
+    "@types/jest": "^29.5.2",
     "@types/nedb": "^1.8.13",
     "@types/node-cron": "^3.0.8",
     "@types/passport": "^1.0.12",
@@ -32,6 +33,7 @@
     "passport-jwt": "^4.0.1"
   },
   "devDependencies": {
+    "jest": "^29.6.0",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
