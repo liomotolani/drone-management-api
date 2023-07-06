@@ -1,6 +1,6 @@
 <div align='center'>
     <h2><b>🎂 Drone Management API 🎂</b></h2>
-    <p>Short description of the project.</p>
+    <p>The Drone Management API is a TypeScript-based backend project that provides a RESTful API for managing a fleet of drones. It allows clients to register drones, load them with medication items, check loaded medication items, and monitor drone battery levels. The project utilizes Node.js, NeDB in-memory database, and Express.js framework. It includes authentication, authorization, validation, and error handling mechanisms. With a focus on data integrity and security, the API serves as a reliable and efficient solution for drone fleet management, facilitating communication between clients and the drone fleet through a well-defined REST API.</p>
 
 </div>
 
