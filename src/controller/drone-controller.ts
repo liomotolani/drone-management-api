@@ -74,6 +74,27 @@ export class DroneController {
         }
     };
 
+    updateDroneBatteryLevel = async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.status(400).json({ message: errors.array() });
+        }
+        const data = {...req.query, ...req.body};
+        try {
+            const drone = await findDroneBySerialNumber(data.droneSerialNumber);
+
+            if (!drone) {
+                res.status(404).json({ error: 'Drone not found' });
+            } else {
+                drone.batteryCapacityLevel = data.level;
+                await updateDrone(drone);
+                res.status(200).json({ message: 'Medication loaded successfully' , data: drone});
+            }
+        } catch (err) {
+            res.status(500).json({ error: 'Failed to load medication' });
+        }
+    };
+
     checkBatteryLevel = async (req: Request, res: Response) => {
         const { droneSerialNumber } = req.params;
 

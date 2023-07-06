@@ -9,6 +9,7 @@ const drone = new DroneController();
 
 router.post("/register", verifyToken ,authorizeUser ,validateRegisterDroneInput,drone.registerDrone);
 router.put("/load",  verifyToken ,authorizeUser, validateLoadDroneInput,drone.loadMedication);
+router.put("/update/battery-level", verifyToken ,authorizeUser,drone.updateDroneBatteryLevel);
 router.get("/battery-level/:droneSerialNumber",  verifyToken , authorizeUser, drone.checkBatteryLevel);
 router.get("/medications/:droneSerialNumber", verifyToken , authorizeUser,  drone.getDroneLoadedMedications);
 router.get("/available",  verifyToken , authorizeUser, drone.getAllAvaialableDrones);
