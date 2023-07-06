@@ -7,11 +7,13 @@ import { handleError } from './utils/error';
 const app = express();
 
 import users from './router/user';
+import drones from './router/drone';
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/v1/users',users);
+app.use('/api/v1/drones',drones);
 
 app.use(handleError)
 

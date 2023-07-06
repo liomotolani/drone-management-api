@@ -1,5 +1,6 @@
 import Datastore from 'nedb';
 import { Drone } from '../model/drone';
+import { State } from '../utils/state';
 
 
 export class DroneDatabase {
@@ -40,15 +41,27 @@ export class DroneDatabase {
 
     updateDrone(drone: Drone): Promise<Drone> {
         return new Promise((resolve, reject) => {
-          this.dronesDB.update({ serialNumber: drone.serialNumber }, drone, { returnUpdatedDocs: true }, (err, _, updatedDrone) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve(drone);
-            }
-          });
+            this.dronesDB.update({ _id: drone._id }, drone, {}, (err) => {
+                if (err) {
+                  reject(err);
+                } else {
+                  resolve(drone);
+                }
+              });
         });
       }
+
+      findIdleStateDrones(): Promise<Drone[] | null> {
+        return new Promise((resolve, reject) => {
+            this.dronesDB.find({state: State.IDLE}, (err:any, drones: Array<Drone>) =>{
+                if(err){
+                    reject(err);
+                } else{
+                    resolve(drones);
+                }
+            });
+    });
+}
 
       
 }

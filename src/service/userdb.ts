@@ -2,14 +2,13 @@ import Datastore from 'nedb';
 import { User } from '../model/user';
 
 
-
 export class UserDB {
 
     private usersDB: Datastore;
 
     constructor() {    
         this.usersDB = new Datastore({
-          filename: './db/user.db',
+        //   filename: './db/users.db',
           autoload: true,
         });
     

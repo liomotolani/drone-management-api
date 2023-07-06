@@ -15,6 +15,8 @@ export class UserController {
         const { username, password } = req.body;
       
         try {
+            // validate input
+            // check if user already exist
           const hashedPassword = bcrypt.hashSync(password, 10);
           const user: User = { id: Date.now().toString(), username, password: hashedPassword };
       
