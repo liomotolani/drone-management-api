@@ -63,5 +63,17 @@ export class DroneDatabase {
     });
 }
 
+    getAllDrones(): Promise<Drone[] | null> {
+        return new Promise((resolve, reject) => {
+            this.dronesDB.find({}, (err:any, drones: Array<Drone>) =>{
+                if(err){
+                    reject(err);
+                } else{
+                    resolve(drones);
+                }
+            });
+        });
+    }
+
       
 }

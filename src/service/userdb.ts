@@ -8,7 +8,7 @@ export class UserDB {
 
     constructor() {    
         this.usersDB = new Datastore({
-        //   filename: './db/users.db',
+        filename: './db/users.db',
           autoload: true,
         });
     

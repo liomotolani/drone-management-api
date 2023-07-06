@@ -1,6 +1,6 @@
 import { Router} from 'express';
 import {DroneController} from '../controller/drone-controller';
-import { authenticateUser } from '../middleware/auth';
+import { authenticateUser, authorizeUser } from '../middleware/auth';
 
 
 const router = Router();
@@ -8,7 +8,6 @@ const drone = new DroneController();
 
 router.post(
     "/register", 
-    // authenticateUser,
     drone.registerDrone
 );
 router.put("/load", drone.loadMedication);
