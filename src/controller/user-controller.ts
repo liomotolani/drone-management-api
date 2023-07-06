@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { UserDB } from "../service/userdb";
 import { User } from '../model/user';
+import { findUserByUsername, save } from '../service/database';
 
-
-const userDB = new UserDB();
 
 const SECRET_KEY = "manage"; 
 
@@ -20,7 +18,7 @@ export class UserController {
           const hashedPassword = bcrypt.hashSync(password, 10);
           const user: User = { id: Date.now().toString(), username, password: hashedPassword };
       
-          await userDB.save(user);
+          await save(user);
           res.status(200).json({ message: 'User registered successfully', data:user });
         } catch (err) {
           res.status(500).json({ error: 'Failed to register user' });
@@ -31,7 +29,7 @@ export class UserController {
         const { username, password } = req.body;
       
         try {
-          const user = await userDB.findUserByUsername(username);
+          const user = await findUserByUsername(username);
       
           if (!user || !bcrypt.compareSync(password, user.password)) {
             return res.status(401).json({ error: 'Invalid username or password' });

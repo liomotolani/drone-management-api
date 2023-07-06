@@ -1,25 +1,26 @@
 import { Request, Response } from 'express';
+import { validationResult } from 'express-validator';
 import { Drone } from '../model/drone';
 import { Medication } from '../model/medication';
-import { DroneDatabase } from "../service/dronedb";
+import { findDroneBySerialNumber, findIdleStateDrones, saveDrone, updateDrone } from '../service/database';
 import { generateSerialNumber } from '../utils/generateNumbers';
 import { State } from '../utils/state';
 
-const database = new DroneDatabase();
 
 
 export class DroneController {
 
-
     registerDrone = async (req: Request, res: Response) => {
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.status(400).json({ message: errors.array() });
+        }
         const { model, weightLimit, batteryCapacityLevel } = req.body;
-        //TODO: VALIDATE USER INPUT
-        console.log(req.body)
         const serialNumber = generateSerialNumber(8);
         const state = State.IDLE;
         const drone: Drone = { serialNumber, model, weightLimit, batteryCapacityLevel, state };
         try {
-            await database.save(drone);
+            await saveDrone(drone);
             res.status(200).json({ message: 'Drone registered successfully', data: drone});
         } catch (err) {
             res.status(500).json({ error: 'Failed to register drone' });
@@ -27,15 +28,13 @@ export class DroneController {
     };
 
     loadMedication = async (req: Request, res: Response) => {
-        const data = {
-            ...req.query,
-            ...req.body
+        const errors = validationResult(req);
+        if(!errors.isEmpty()){
+            res.status(400).json({ message: errors.array() });
         }
-        console.log(data);
-
-
+        const data = {...req.query, ...req.body};
         try {
-            const drone = await database.findDroneBySerialNumber(data.droneSerialNumber);
+            const drone = await findDroneBySerialNumber(data.droneSerialNumber);
 
             if (!drone) {
                 res.status(404).json({ error: 'Drone not found' });
@@ -67,7 +66,7 @@ export class DroneController {
                 }else{
                     drone.state = State.LOADING;
                 }
-                await database.updateDrone(drone);
+                await updateDrone(drone);
                 res.status(200).json({ message: 'Medication loaded successfully' , data: drone});
             }
         } catch (err) {
@@ -79,7 +78,7 @@ export class DroneController {
         const { droneSerialNumber } = req.params;
 
         try {
-            const drone = await database.findDroneBySerialNumber(droneSerialNumber);
+            const drone = await findDroneBySerialNumber(droneSerialNumber);
 
             if (!drone) {
                 res.status(404).json({ error: 'Drone not found' });
@@ -94,7 +93,7 @@ export class DroneController {
     getDroneLoadedMedications = async (req: Request, res: Response) => {
         const { droneSerialNumber } = req.params;
         try {
-            const drone = await database.findDroneBySerialNumber(droneSerialNumber);
+            const drone = await findDroneBySerialNumber(droneSerialNumber);
 
             if (!drone) {
                 res.status(404).json({ error: 'Drone not found' });
@@ -108,7 +107,7 @@ export class DroneController {
 
     getAllAvaialableDrones = async (req: Request, res: Response) => {
         try {
-           const drones = await database.findIdleStateDrones();
+           const drones = await findIdleStateDrones();
            res.status(200).json({ data: drones });
         } catch (err) {
             res.status(500).json({ error: 'Failed to fetch data' });

@@ -1,2 +1,15 @@
-{"serialNumber":"SER-8rz7j1k7","model":"HEAVYWEIGHT","weightLimit":500,"batteryCapacityLevel":90,"state":0,"_id":"3KSTExhqRHdriwIr"}
-{"serialNumber":"SER-rxoseqpr","model":"LIGHTWEIGHT","weightLimit":400,"batteryCapacityLevel":100,"state":1,"_id":"v8lWVbhoG0ZpXdtQ","medication":[{"name":"Paracetamol","weight":20,"code":"PAR-78HKK","image":"Paracetamol.jpg"},{"name":"Paracetamol","weight":20,"code":"PAR-78HKK","image":"Paracetamol.jpg"}]}
+{"serialNumber":"SER-9nozk517","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"40XF4tFr5sjlysXv"}
+{"serialNumber":"SER-d1j5a0lj","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"4CGbLSc2yvOro8Qd"}
+{"serialNumber":"SER-1ih6s8yy","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"AluaybYpMJf1u9eH"}
+{"serialNumber":"SER-0x5ks77p","model":"HEAVYWEIGHT","weightLimit":500,"batteryCapacityLevel":90,"state":0,"_id":"CqlTbRnIfkaHD3XK"}
+{"serialNumber":"SER-89eegul7","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"FjqWTvXjJZ1GNyQy"}
+{"serialNumber":"SER-cajzpj2t","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"fwVy7EFqm5b3lT7R"}
+{"serialNumber":"SER-j72kcnjz","model":"LIGHTWEIGHT","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"g0FwOGkBYGSTOvMp"}
+{"serialNumber":"SER-gtizmmqi","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"lXim5NdLHSnUYFwb"}
+{"serialNumber":"SER-iwv08om0","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"oXkjSdWW8AEpN8bN"}
+{"serialNumber":"SER-ml2ee7ez","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"pKb0jGW3RQKyrv2Y"}
+{"serialNumber":"SER-rbot3wp2","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"qTYFHCaq7fPkeIun"}
+{"serialNumber":"SER-eb8yp9ly","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"u8rZHHY22SG2W71v"}
+{"serialNumber":"SER-do6gdfxy","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"wKomjO8CDqCamRWo"}
+{"serialNumber":"SER-hsqmj8uu","model":"kk","weightLimit":300,"batteryCapacityLevel":70,"state":0,"_id":"yfgEPV39XpFHkQHz"}
+{"serialNumber":"SER-ak4ebm3b","model":"LIGHTWEIGHT","weightLimit":300,"batteryCapacityLevel":70,"state":1,"_id":"zBuhSorBdNllGw8f","medication":[{"name":"Paracetamol","weight":20,"code":"PAR-78HKK","image":"Paracetamol.jpg"}]}

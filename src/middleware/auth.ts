@@ -1,16 +1,15 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { UserDB } from '../service/userdb';
+import { findUserById, findUserByUsername } from '../service/database';
 
 const SECRET_KEY = "manage"; 
 
-const database = new UserDB();
 
 export const authenticateUser = async (req: Request, res: Response, next: NextFunction) => {
   const { username, password } = req.body;
   try {
-    const user = await database.findUserByUsername(username);
+    const user = await findUserByUsername(username);
 
     if (!user || !bcrypt.compareSync(password, user.password)) {
       return res.status(401).json({ error: 'Invalid username or password' });
@@ -45,7 +44,7 @@ export const authorizeUser = async (req: Request, res: Response, next: NextFunct
   const { userId } = res.locals;
 
   try {
-    const user = await database.findUserById(userId);
+    const user = await findUserById(userId);
 
     if (!user) {
       return res.status(401).json({ error: 'User not found' });
