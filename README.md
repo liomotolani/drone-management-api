@@ -88,5 +88,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## 📌 **LINKS**
 
 [<img alt="Github" src="https://img.shields.io/badge/liomotolani-%23181717.svg?style=for-the-badge&logo=github&logoColor=white" />](https://github.com/liomotolani)
-[<img alt="Twitter" src="https://img.shields.io/badge/omotolaniligali%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" />](https://twitter.com/omotolaniligali)
-[<img alt="Linkedin" src="https://img.shields.io/badge/[username]-%23E4405F.svg?style=for-the-badge&logo=Linkedin&logoColor=white" />](https://www.linkedin.com/in/omotolani-ligali/)
+[<img alt="Twitter" src="https://img.shields.io/badge/omotolani-ligali%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white" />](https://twitter.com/omotolaniligali)
+[<img alt="Linkedin" src="https://img.shields.io/badge/omotolani-ligali-%23E4405F.svg?style=for-the-badge&logo=Linkedin&logoColor=white" />](https://www.linkedin.com/in/omotolani-ligali/)
